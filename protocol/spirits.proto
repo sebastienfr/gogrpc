@@ -1,0 +1,68 @@
+syntax = "proto3";
+package gogrpc;
+option go_package = "gogrpc";
+
+/*import "google/protobuf/timestamp.proto";*/
+
+service SpiritService {
+    rpc CreateSpirit (SpiritCreationRequest) returns (SpiritCreationResponse) {}
+    rpc UpdateSpirit (SpiritUpdateRequest) returns (SpiritUpdateResponse) {}
+    rpc DeleteSpirit (SpiritDeleteRequest) returns (SpiritDeleteResponse) {}
+    rpc SearchSpirit (SpiritSearchRequest) returns (SpiritSearchResponse) {}
+}
+
+message Spirit {
+    enum SpiritType {
+        TypeRhum = 0;
+        TypeWine = 1;
+        TypeWhisky = 2;
+        TypeChampagne = 3;
+        TypeGin = 4;
+        TypeBier = 5;
+    }
+    string id = 1;
+    string Name = 2;
+    string Distiller = 3;
+    string Bottler = 4;
+    string Country = 5;
+    string Region = 6;
+    string Composition = 7;
+    SpiritType type = 8;
+    int32 Age = 9;
+    /*google.protobuf.Timestamp BottlingDate = 10;*/
+    int64 BottlingDate = 10;
+    float Score = 11;
+    string Comment = 12;
+}
+
+message SpiritCreationRequest {
+    Spirit spirit = 1;
+}
+
+message SpiritUpdateRequest {
+    Spirit spirit = 1;
+}
+
+message SpiritDeleteRequest {
+    Spirit spirit = 1;
+}
+
+message SpiritSearchRequest {
+    Spirit spirit = 1;
+}
+
+message SpiritCreationResponse {
+    Spirit spirit = 1;
+}
+
+message SpiritUpdateResponse {
+    Spirit spirit = 1;
+}
+
+message SpiritDeleteResponse {
+    bool deleted = 1;
+}
+
+message SpiritSearchResponse {
+    repeated Spirit spirit = 1;
+}
