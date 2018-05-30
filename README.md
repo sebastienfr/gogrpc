@@ -18,10 +18,23 @@ To build [gRPC](https://grpc.io/docs/quickstart/go.html#go-version) you then nee
 
 ### Defining protocol
 
-### Building stub
+See [spirits.proto](protocol/spirits.proto)
+
+### Building stub for gRPC
+
     cd protocol
     protoc --go_out=plugins=grpc:. ./spirits.proto
 
+### Building protobuf marshaller stub
+
+    cd protocol
+    protoc --go_out=. ./spirits.proto
+
+
 ### Integration in client and server
 
+See [server](server/server.go) and [client](client/client.go)
+
 ### Testing comparison
+
+See [comparison](comparison/sprits.json.go)

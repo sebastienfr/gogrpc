@@ -8,7 +8,7 @@ service SpiritService {
     rpc CreateSpirit (SpiritCreationRequest) returns (SpiritCreationResponse) {}
     rpc UpdateSpirit (SpiritUpdateRequest) returns (SpiritUpdateResponse) {}
     rpc DeleteSpirit (SpiritDeleteRequest) returns (SpiritDeleteResponse) {}
-    rpc SearchSpirit (SpiritSearchRequest) returns (SpiritSearchResponse) {}
+    rpc SearchSpirit (SpiritSearchRequest) returns (stream SpiritSearchResponse) {}
 }
 
 message Spirit {

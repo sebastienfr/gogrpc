@@ -38,9 +38,9 @@ func (sh *spiritHandler) DeleteSpirit(ctx context.Context, request *sfr.SpiritDe
 	return nil, nil
 }
 
-func (sh *spiritHandler) SearchSpirit(ctx context.Context, request *sfr.SpiritSearchRequest) (*sfr.SpiritSearchResponse, error) {
+func (sh *spiritHandler) SearchSpirit(request *sfr.SpiritSearchRequest, response sfr.SpiritService_SearchSpiritServer) error {
 	log.Printf("New spirit search received %+v", request)
-	return nil, nil
+	return nil
 }
 
 func main() {
