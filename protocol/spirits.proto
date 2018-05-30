@@ -26,7 +26,7 @@ message Spirit {
         TypeGin = 4;
         TypeBier = 5;
     }
-    string id = 1;
+    string Id = 1;
     string Name = 2;
     string Distiller = 3;
     string Bottler = 4;
