@@ -4,13 +4,19 @@ option go_package = "gogrpc";
 
 /*import "google/protobuf/timestamp.proto";*/
 
+// SpiritService is the basic CRUD service for spirits
 service SpiritService {
+    // CreateSpirit creates a spirit and returns the created spirit
     rpc CreateSpirit (SpiritCreationRequest) returns (SpiritCreationResponse) {}
+    // UpdateSpirit updates an existing spirit and returns the updated spirit
     rpc UpdateSpirit (SpiritUpdateRequest) returns (SpiritUpdateResponse) {}
+    // DeleteSpirit deletes an existing spirit and returns true if deleted
     rpc DeleteSpirit (SpiritDeleteRequest) returns (SpiritDeleteResponse) {}
+    // SearchSpirit searches for spirits matching the requests and streams the found spirits
     rpc SearchSpirit (SpiritSearchRequest) returns (stream SpiritSearchResponse) {}
 }
 
+// Spirit is the basic spirit representation
 message Spirit {
     enum SpiritType {
         TypeRhum = 0;

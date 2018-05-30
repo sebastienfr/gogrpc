@@ -73,6 +73,7 @@ func (x Spirit_SpiritType) String() string {
 }
 func (Spirit_SpiritType) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{0, 0} }
 
+// Spirit is the basic spirit representation
 type Spirit struct {
 	Id          string            `protobuf:"bytes,1,opt,name=id" json:"id,omitempty"`
 	Name        string            `protobuf:"bytes,2,opt,name=Name" json:"Name,omitempty"`
@@ -330,9 +331,13 @@ const _ = grpc.SupportPackageIsVersion4
 // Client API for SpiritService service
 
 type SpiritServiceClient interface {
+	// CreateSpirit creates a spirit and returns the created spirit
 	CreateSpirit(ctx context.Context, in *SpiritCreationRequest, opts ...grpc.CallOption) (*SpiritCreationResponse, error)
+	// UpdateSpirit updates an existing spirit and returns the updated spirit
 	UpdateSpirit(ctx context.Context, in *SpiritUpdateRequest, opts ...grpc.CallOption) (*SpiritUpdateResponse, error)
+	// DeleteSpirit deletes an existing spirit and returns true if deleted
 	DeleteSpirit(ctx context.Context, in *SpiritDeleteRequest, opts ...grpc.CallOption) (*SpiritDeleteResponse, error)
+	// SearchSpirit searches for spirits matching the requests and streams the found spirits
 	SearchSpirit(ctx context.Context, in *SpiritSearchRequest, opts ...grpc.CallOption) (SpiritService_SearchSpiritClient, error)
 }
 
@@ -406,9 +411,13 @@ func (x *spiritServiceSearchSpiritClient) Recv() (*SpiritSearchResponse, error) 
 // Server API for SpiritService service
 
 type SpiritServiceServer interface {
+	// CreateSpirit creates a spirit and returns the created spirit
 	CreateSpirit(context.Context, *SpiritCreationRequest) (*SpiritCreationResponse, error)
+	// UpdateSpirit updates an existing spirit and returns the updated spirit
 	UpdateSpirit(context.Context, *SpiritUpdateRequest) (*SpiritUpdateResponse, error)
+	// DeleteSpirit deletes an existing spirit and returns true if deleted
 	DeleteSpirit(context.Context, *SpiritDeleteRequest) (*SpiritDeleteResponse, error)
+	// SearchSpirit searches for spirits matching the requests and streams the found spirits
 	SearchSpirit(*SpiritSearchRequest, SpiritService_SearchSpiritServer) error
 }
 
