@@ -9,11 +9,14 @@ import (
 	"google.golang.org/grpc"
 	"log"
 	"net"
+	"time"
 )
 
 const (
 	port = ":50051"
 )
+
+var counter int
 
 // spiritHandler is used to implement SpiritServiceServer
 type spiritHandler struct{}
@@ -25,6 +28,14 @@ func (sh *spiritHandler) CreateSpirit(ctx context.Context, request *sfr.SpiritCr
 	response := &sfr.SpiritCreationResponse{
 		Spirit: spirit,
 	}
+
+	// sleep to test timeout
+	if counter%10 == 0 {
+		time.Sleep(250 * time.Millisecond)
+	}
+
+	counter++
+
 	return response, nil
 }
 

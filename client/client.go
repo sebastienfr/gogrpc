@@ -17,9 +17,12 @@ const (
 
 func main() {
 	// set up a connection to the server.
-	conn, err := grpc.Dial(address, grpc.WithInsecure())
+	conn, err := grpc.Dial(address,
+		grpc.WithInsecure(),
+		grpc.WithBackoffMaxDelay(5*time.Second),
+	)
 	if err != nil {
-		log.Printf("did not connect: %v", err)
+		log.Printf("could not connect to %s: %v", address, err)
 	}
 	defer conn.Close()
 
@@ -28,7 +31,7 @@ func main() {
 
 	for {
 		// create a new context for RPC
-		ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+		ctx, _ := context.WithTimeout(context.Background(), 100*time.Millisecond)
 
 		// do the the RPC
 		r, err := c.CreateSpirit(ctx, &sfr.SpiritCreationRequest{
@@ -36,11 +39,11 @@ func main() {
 				Age:          10,
 				BottlingDate: time.Now().AddDate(-2, 0, 0).Unix(),
 				Bottler:      "Seb",
-				Comment:      "Hello Bier Drinkers !",
+				Comment:      "Hello Beer Drinkers !",
 				Composition:  "Malt, Houblon",
 				Country:      "France",
 				Distiller:    "DevFest Lille",
-				Name:         "Chti bier",
+				Name:         "Chti beer",
 				Region:       "NPDC",
 				Score:        10.0,
 				Type:         sfr.Spirit_TypeBeer,
@@ -52,8 +55,7 @@ func main() {
 		}
 
 		// sleep and start again
-		time.Sleep(2 * time.Second)
-		defer cancel()
+		time.Sleep(1 * time.Second)
 	}
 
 }
