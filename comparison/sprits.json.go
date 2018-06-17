@@ -31,14 +31,14 @@ func main() {
 		Id:           uuid.NewV4().String(),
 		BottlingDate: time.Now().AddDate(-2, 0, 0).Unix(),
 		Bottler:      "Seb",
-		Comment:      "Hello Bier Drinkers !",
+		Comment:      "Hello Beer Drinkers !",
 		Composition:  "Malt, Houblon",
 		Country:      "France",
 		Distiller:    "DevFest Lille",
-		Name:         "Chti bier",
+		Name:         "Chti beer",
 		Region:       "NPDC",
 		Score:        10.0,
-		Type:         gogrpc.Spirit_TypeBier,
+		Type:         gogrpc.Spirit_TypeBeer,
 	}
 
 	jsonb, err := json.Marshal(&sj)
@@ -57,14 +57,14 @@ func main() {
 			Id:           uuid.NewV4().String(),
 			BottlingDate: time.Now().AddDate(-2, 0, 0).Unix(),
 			Bottler:      "Seb",
-			Comment:      "Hello Bier Drinkers !",
+			Comment:      "Hello Beer Drinkers !",
 			Composition:  "Malt, Houblon",
 			Country:      "France",
 			Distiller:    "DevFest Lille",
-			Name:         "Chti bier",
+			Name:         "Chti beer",
 			Region:       "NPDC",
 			Score:        10.0,
-			Type:         gogrpc.Spirit_TypeBier,
+			Type:         gogrpc.Spirit_TypeBeer,
 		}}
 
 	protobb, err := proto.Marshal(scr)
