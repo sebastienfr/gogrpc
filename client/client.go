@@ -43,7 +43,7 @@ func main() {
 				Name:         "Chti bier",
 				Region:       "NPDC",
 				Score:        10.0,
-				Type:         sfr.Spirit_TypeBier,
+				Type:         sfr.Spirit_TypeBeer,
 			}})
 		if err != nil {
 			log.Printf("could not create: %v", err)
