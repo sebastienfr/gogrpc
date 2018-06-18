@@ -19,12 +19,13 @@ service SpiritService {
 // Spirit is the basic spirit representation
 message Spirit {
     enum SpiritType {
-        TypeRhum = 0;
-        TypeWine = 1;
-        TypeWhisky = 2;
-        TypeChampagne = 3;
-        TypeGin = 4;
-        TypeBeer = 5;
+        TypeUnspecified = 0;
+        TypeRhum = 1;
+        TypeWine = 2;
+        TypeWhisky = 3;
+        TypeChampagne = 4;
+        TypeGin = 5;
+        TypeBeer = 6;
     }
     string Id = 1;
     string Name = 2;
