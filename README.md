@@ -4,7 +4,7 @@ The main purpose of this project is to get an overview about GRPC and how to use
 
 ## Links
 
-French slides associated to that repo are available here [disponibles ici](https://docs.google.com/presentation/d/1bOzQD5ytBqioqGNQk4hL9_smYrOD-l2205NFxqKL5uA/edit?usp=sharing)
+French slides associated to that repo are [available here](https://docs.google.com/presentation/d/1bOzQD5ytBqioqGNQk4hL9_smYrOD-l2205NFxqKL5uA/edit?usp=sharing)
 
 ## Setup for Go
 
